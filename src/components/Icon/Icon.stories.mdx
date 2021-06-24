@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Icon from './Icon';
+
+<Meta
+  title='Icon'
+  component={Icon}
+  argTypes={{
+    id: {
+      control: {
+        type: 'select',
+        options: ['search', 'at-sign', 'chevron-down'],
+      },
+    },
+    size: {
+      control: {
+        type: 'number',
+      },
+    },
+    strokeWidth: {
+      control: {
+        type: 'number',
+      },
+    },
+  }}
+/>
+
+export const Template = args => <Icon {...args} />;
+
+# Icon
+
+<Story
+  name='ChevronDown'
+  args={{
+    id: 'chevron-down',
+    size: '100',
+  }}>
+  {Template.bind({})}
+</Story>
