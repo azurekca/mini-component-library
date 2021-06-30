@@ -18,8 +18,8 @@ const VARIANTS = {
 };
 
 const ICON_SIZES = {
-  small: 20,
-  large: 24,
+  small: { size: 20, strokeWidth: 1 },
+  large: { size: 24, strokeWidth: 2 },
 };
 
 const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
@@ -64,7 +64,11 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
       <VisuallyHidden>
         <label htmlFor='icon-input'>{label}</label>
       </VisuallyHidden>
-      <StyledIcon id={icon} size={ICON_SIZES[size]} strokeWidth={2} />
+      <StyledIcon
+        id={icon}
+        size={ICON_SIZES[size].size}
+        strokeWidth={ICON_SIZES[size].strokeWidth}
+      />
       <Input id='icon-input' placeholder={placeholder} />
     </Wrapper>
   );
