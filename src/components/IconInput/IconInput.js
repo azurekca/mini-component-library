@@ -32,7 +32,6 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
     font-weight: 700;
     height: 100%;
     outline-offset: 2px;
-    -moz-outline-radius: 2px;
     padding: 4px 32px;
     width: 100%;
     &::placeholder {
