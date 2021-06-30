@@ -6,14 +6,68 @@ import { COLORS } from '../../constants';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
-const IconInput = ({
-  label,
-  icon,
-  width = 250,
-  size,
-  placeholder,
-}) => {
-  return 'TODO';
+const VARIANTS = {
+  small: {
+    '--fontSize': '14px',
+    '--borderWidth': '1px',
+  },
+  large: {
+    '--fontSize': '18px',
+    '--borderWidth': '2px',
+  },
+};
+
+const ICON_SIZES = {
+  small: 20,
+  large: 24,
+};
+
+const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
+  const style = VARIANTS[size];
+  const Input = styled.input`
+    border: none;
+    border-bottom: var(--borderWidth) solid ${COLORS.black};
+    color: inherit;
+    font-size: var(--fontSize);
+    font-weight: 700;
+    height: 100%;
+    outline-offset: 2px;
+    -moz-outline-radius: 2px;
+    padding: 4px 32px;
+    width: 100%;
+    &::placeholder {
+      color: ${COLORS.gray500};
+      font-weight: 400;
+    }
+  `;
+
+  const StyledIcon = styled(Icon)`
+    bottom: 2px;
+    color: inherit;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 2px;
+  `;
+
+  const Wrapper = styled.div`
+    color: ${COLORS.gray700};
+    position: relative;
+    width: ${width}px;
+    &:hover {
+      color: ${COLORS.black};
+    }
+  `;
+
+  return (
+    <Wrapper style={style}>
+      <VisuallyHidden>
+        <label htmlFor='icon-input'>{label}</label>
+      </VisuallyHidden>
+      <StyledIcon id={icon} size={ICON_SIZES[size]} strokeWidth={2} />
+      <Input id='icon-input' placeholder={placeholder} />
+    </Wrapper>
+  );
 };
 
 export default IconInput;

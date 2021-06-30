@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 import IconInput from './IconInput';
 
 <Meta
-  title="IconInput"
+  title='IconInput'
   component={IconInput}
   argTypes={{
     placeholder: {
@@ -30,18 +30,28 @@ import IconInput from './IconInput';
   }}
 />
 
-export const Template = (args) => <IconInput {...args} />;
+export const Template = args => <IconInput {...args} />;
 
 # IconInput
 
 <Story
-  name="Default"
+  name='SearchSmall'
   args={{
     placeholder: 'Search…',
     label: 'Search',
     icon: 'search',
     size: 'small',
-  }}
->
+  }}>
+  {Template.bind({})}
+</Story>
+
+<Story
+  name='EmailLarge'
+  args={{
+    placeholder: 'name@example.com',
+    label: 'Email',
+    icon: 'at-sign',
+    size: 'large',
+  }}>
   {Template.bind({})}
 </Story>
